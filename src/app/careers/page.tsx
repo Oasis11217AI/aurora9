@@ -73,7 +73,7 @@ export default function CareersPage() {
             <option value="Backend Engineer">Backend Engineer</option>
             <option value="Marketing AI Strategist">Marketing AI Strategist</option>
             <option value="Ecommerce Integration Lead">Ecommerce Integration Lead</option>
-            <option value="AI Training Specialist">AI Training Specialist</option>
+            <option v                                       alue="AI Training Specialist">AI Training Specialist</option>
           </select>
         </div>
 

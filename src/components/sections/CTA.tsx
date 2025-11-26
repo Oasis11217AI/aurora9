@@ -16,12 +16,9 @@ export default function CTA() {
   }, []);
 
   const openMailerLiteModal = () => {
-    // @ts-expect-error MailerLite modal global function
-    if (typeof window.MailerLite !== 'undefined' && window.MailerLite.showPopup) {
-      // @ts-expect-error MailerLite modal global function
-      window.MailerLite.showPopup('1239222', {
-        uid: '4z9z7k2t0m',
-      });
+    const ml = (window as any).MailerLite;
+    if (ml?.showPopup) {
+      ml.showPopup('1239222', { uid: '4z9z7k2t0m' });
     } else {
       alert('Popup is still loading. Please wait a moment and try again.');
     }
@@ -57,7 +54,6 @@ export default function CTA() {
           viewport={{ once: true }}
           className="flex justify-center gap-6 flex-wrap"
         >
-          {/* Request Early Access triggers modal */}
           <button
             onClick={openMailerLiteModal}
             className="bg-white text-teal-700 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-gray-100 transition"
@@ -65,7 +61,6 @@ export default function CTA() {
             Request Early Access
           </button>
 
-          {/* Book a Demo is disabled and shows tooltip */}
           <div className="relative group">
             <button
               disabled

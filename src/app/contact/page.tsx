@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Head from 'next/head';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -25,63 +26,76 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="max-w-3xl mx-auto py-16 px-4">
-      <h1 className="text-4xl font-bold mb-6 text-center text-teal-500">Contact Us</h1>
+    <>
+      <Head>
+        <title>Contact Us | AURORA9</title>
+        <meta
+          name="description"
+          content="Have questions or need support? Contact AURORA9 — we’d love to hear from you."
+        />
+      </Head>
 
-      <p className="text-gray-700 mb-10 text-center">
-        We’d love to hear from you! Fill out the form below or email us at{' '}
-        <a href="mailto:aurora9ai@gmail.com" className="text-teal-500 hover:underline">
-          aurora9ai@gmail.com
-        </a>
-      </p>
+      <main className="max-w-3xl mx-auto py-16 px-4">
+        <h1 className="text-4xl font-bold mb-6 text-center text-teal-500">Contact Us</h1>
 
-      {submitted ? (
-        <p className="text-green-600 text-center text-lg font-semibold">
-          ✅ Your message has been sent successfully!
+        <p className="text-gray-700 mb-10 text-center">
+          We’d love to hear from you! Fill out the form below or email us at{' '}
+          <a href="mailto:aurora9@aurora9.ai" className="text-teal-500 hover:underline">
+            aurora9@aurora9.ai
+          </a>
         </p>
-      ) : (
-        <form className="grid gap-6" onSubmit={handleSubmit}>
-          <div>
-            <label className="block text-sm font-semibold mb-1">Name</label>
-            <input
-              type="text"
-              name="name"
-              required
-              placeholder="Your name"
-              className="w-full p-3 border rounded bg-gray-100 text-gray-800"
-            />
-          </div>
 
-          <div>
-            <label className="block text-sm font-semibold mb-1">Email</label>
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="you@example.com"
-              className="w-full p-3 border rounded bg-gray-100 text-gray-800"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-semibold mb-1">Message</label>
-            <textarea
-              name="message"
-              rows={5}
-              required
-              placeholder="How can we help you?"
-              className="w-full p-3 border rounded bg-gray-100 text-gray-800"
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            className="bg-teal-500 text-white font-bold py-3 px-6 rounded hover:bg-teal-600 transition duration-200"
+        {submitted ? (
+          <p
+            className="text-green-600 text-center text-lg font-semibold"
+            aria-live="polite"
           >
-            Send Message
-          </button>
-        </form>
-      )}
-    </main>
+            ✅ Your message has been sent successfully!
+          </p>
+        ) : (
+          <form className="grid gap-6" onSubmit={handleSubmit}>
+            <div>
+              <label className="block text-sm font-semibold mb-1">Name</label>
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Your name"
+                className="w-full p-3 border rounded bg-gray-100 text-gray-800"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold mb-1">Email</label>
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="you@example.com"
+                className="w-full p-3 border rounded bg-gray-100 text-gray-800"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold mb-1">Message</label>
+              <textarea
+                name="message"
+                rows={5}
+                required
+                placeholder="How can we help you?"
+                className="w-full p-3 border rounded bg-gray-100 text-gray-800"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              className="bg-teal-500 text-white font-bold py-3 px-6 rounded hover:bg-teal-600 transition duration-200"
+            >
+              Send Message
+            </button>
+          </form>
+        )}
+      </main>
+    </>
   );
 }

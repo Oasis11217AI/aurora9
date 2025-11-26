@@ -1,8 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://www.aurora9.ai', // Replace with your actual production domain
+  siteUrl: 'https://oasis11217ai.github.io/aurora9',
   generateRobotsTxt: true,
-  sitemapSize: 5000,
-  changefreq: 'weekly',
-  priority: 0.7,
+  outDir: './out',
+  trailingSlash: true,
 };

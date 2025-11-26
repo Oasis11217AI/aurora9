@@ -16,7 +16,7 @@ export default function Footer() {
           <div className="flex items-center gap-2 text-blue-500">
             <FaLinkedin />
             <a
-              href="https://www.linkedin.com/in/aurora9-ai-agent-09a253364/"
+              href="https://www.linkedin.com/company/aurora9/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline text-sm font-medium"
@@ -26,15 +26,21 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Right Section - Vertically stacked links */}
+        {/* Right Section */}
         <div className="flex flex-col gap-2 text-sm text-gray-400 items-end">
-          <Link href="/terms" className="hover:text-white">Terms</Link>
-          <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
-          <Link href="/contact" className="hover:text-white">Contact Us</Link>
-          <Link href="/investors" className="hover:text-white">Investors</Link>
-          <Link href="/faq" className="hover:text-white">FAQ</Link>
-          <Link href="/press" className="hover:text-white">Press</Link>
-          <Link href="/careers" className="hover:text-white">Careers</Link>
+          {[
+            ['Terms', '/terms'],
+            ['Privacy Policy', '/privacy-policy'],
+            ['Contact Us', '/contact'],
+            ['Investors', '/investors'],
+            ['FAQ', '/faq'],
+            ['Press', '/press'],
+            ['Careers', '/careers'],
+          ].map(([label, href]) => (
+            <Link key={href} href={href} className="hover:text-white">
+              {label}
+            </Link>
+          ))}
         </div>
       </div>
     </footer>

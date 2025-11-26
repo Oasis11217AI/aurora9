@@ -43,7 +43,7 @@ export default function PrivacyPolicyPage() {
       </p>
 
       <p className="text-gray-300">
-        If you have questions about this Privacy Policy or your data, contact us at <a href="mailto:aurora9ai@gmail.com" className="text-blue-400 underline">privacy@aurora9.ai</a>.
+        If you have questions about this Privacy Policy or your data, contact us at <a href="mailto:aurora9@aurora9.ai" className="text-blue-400 underline">aurora9@aurora9.ai</a>.
       </p>
     </main>
   );

@@ -13,9 +13,7 @@ export default function Navbar() {
   };
 
   const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setAboutOpen(false);
-    }, 200); // delay prevents flicker
+    timeoutRef.current = setTimeout(() => setAboutOpen(false), 200);
   };
 
   return (
@@ -26,7 +24,7 @@ export default function Navbar() {
         </Link>
 
         <ul className="flex space-x-8 text-sm font-medium relative">
-          {/* About with Dropdown */}
+          {/* About Dropdown */}
           <li
             className="relative group"
             onMouseEnter={handleMouseEnter}
@@ -60,24 +58,18 @@ export default function Navbar() {
             </ul>
           </li>
 
-          {/* How it Works */}
-          <li>
-            <Link href="/how-it-works" className="hover:text-teal-400">
-              How it Works
-            </Link>
-          </li>
-<li>
-  <Link href="/pricing" className="hover:text-teal-400">
-    Pricing
-  </Link>
-</li>
-
-          {/* Blog */}
-          <li>
-            <Link href="/blog" className="hover:text-teal-400">
-              Blog
-            </Link>
-          </li>
+          {/* Simple Links */}
+          {[
+            ['How it Works', '/how-it-works'],
+            ['Pricing', '/pricing'],
+            ['Blog', '/blog'],
+          ].map(([label, href]) => (
+            <li key={href}>
+              <Link href={href} className="hover:text-teal-400">
+                {label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
